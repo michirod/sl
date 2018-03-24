@@ -48,6 +48,8 @@ void add_man(int y, int x);
 int add_C51(int x);
 int add_D51(int x);
 int add_sl(int x);
+int add_sls(int x);
+void add_doctor(int y, int x);
 void option(char *str);
 int my_mvaddstr(int y, int x, char *str);
 
@@ -55,6 +57,7 @@ int ACCIDENT  = 0;
 int LOGO      = 0;
 int FLY       = 0;
 int C51       = 0;
+int SLS       = 0;
 
 int my_mvaddstr(int y, int x, char *str)
 {
@@ -67,7 +70,7 @@ int my_mvaddstr(int y, int x, char *str)
 
 void option(char *str)
 {
-    extern int ACCIDENT, LOGO, FLY, C51;
+    extern int ACCIDENT, LOGO, FLY, C51, SLS;
 
     while (*str != '\0') {
         switch (*str++) {
@@ -75,6 +78,7 @@ void option(char *str)
             case 'F': FLY      = 1; break;
             case 'l': LOGO     = 1; break;
             case 'c': C51      = 1; break;
+            case 's': SLS      = 1; break;
             default:                break;
         }
     }
@@ -103,6 +107,9 @@ int main(int argc, char *argv[])
         }
         else if (C51 == 1) {
             if (add_C51(x) == ERR) break;
+        }
+        else if (SLS == 1){
+            if (add_sls(x) == ERR) break;
         }
         else {
             if (add_D51(x) == ERR) break;
@@ -239,6 +246,46 @@ int add_C51(int x)
     return OK;
 }
 
+int add_sls(int x)
+{
+    static char *sls[SLSPATTERNS][SLSHEIGHT + 1]
+        = {{SLSL101, SLSL102, SLSL103, SLSL104, SLSL105, SLSL106, SLSL107,
+		SLSL108, SLSL109, SLSL110, SLSL111, SLSL112, SLSL113,
+        	SLSBDY1, SLSBDY2, SLSBDY3, SLSBDY4,
+		SLSBDY5, SLSBDY6, SLSBDY7, SLSBDY8, SLSDEL},
+        {SLSL201, SLSL202, SLSL203, SLSL204, SLSL205, SLSL206, SLSL207,
+		SLSL208, SLSL209, SLSL210, SLSL211, SLSL212, SLSL213,
+        	SLSBDY1, SLSBDY2, SLSBDY3, SLSBDY4,
+		SLSBDY5, SLSBDY6, SLSBDY7, SLSBDY8, SLSDEL}};
+    int y, i, dy = 0;
+
+    if (x < - SLSLENGTH)  return ERR;
+    y = LINES / 2 - 5;
+
+    if (FLY == 1) {
+        y = (x / 7) + LINES - (COLS / 7) - SLSHEIGHT;
+        dy = 1;
+    }
+    for (i = 0; i <= SLSHEIGHT; ++i) {
+        my_mvaddstr(y + i + dy, x, sls[(SLSLENGTH + x) % SLSPATTERNS][i]);
+    }
+    if (ACCIDENT == 1) {
+        add_doctor(y + 12, x + 30);
+        add_doctor(y + 12, x + 40);
+    }
+    add_smoke(y - 1, x + SLSFUNNEL);
+    return OK;
+}
+
+void add_doctor(int y, int x)
+{
+    static char *man[2][2] = {{"", " (O)"}, {"IIILLL!", " \\O/"}};
+    int i;
+
+    for (i = 0; i < 2; ++i) {
+        my_mvaddstr(y + i, x, man[(LOGOLENGTH + x) / 12 % 2][i]);
+    }
+}
 
 void add_man(int y, int x)
 {

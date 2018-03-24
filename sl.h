@@ -148,3 +148,47 @@
 #define C51WH12 "------'|oOo|=[]=-      ||      ||      |  ||=======_|__"
 #define C51WH13 "/~\\____|___|/~\\_|  O=======O=======O   |__|+-/~\\_|     "
 #define C51WH14 "\\_/         \\_/  \\____/  \\____/  \\____/      \\_/       "
+
+#define SLSHEIGHT 21
+#define SLSFUNNEL 50
+#define SLSLENGTH 54
+#define SLSPATTERNS 2
+
+#define SLSDEL  "                                                       "
+
+#define SLSL101 "_ _                                                    "
+#define SLSL102 "   \\_ _                ___________________________     "
+#define SLSL103 "       \\_ _           /                           \\    "
+#define SLSL104 " -   -   - \\_ _       |                            |   "
+#define SLSL105 "               \\_ _   \\___________________________/    "
+#define SLSL106 " -   -   -   -   - \\_ _        |              |        "
+#define SLSL107 "_ _ _ _ _ _ _ _ _ _ _ _\\-\\_   /               |        "
+#define SLSL108 "                    _ _/-/   /                 \\       "
+#define SLSL109 " -   -   -   -  _-_/  ______/                   \\__    "
+#define SLSL110 "            _ _/     /_____________________________\\   "
+#define SLSL111 " -   -  _-_/         |                             |   "
+#define SLSL112 "    _ _/             |                             |   "
+#define SLSL113 "_ _/                 |                             |   "
+
+#define SLSL201 "                                                       "
+#define SLSL202 "                       ___________________________     "
+#define SLSL203 "                      /                           \\    "
+#define SLSL204 "                      |                            |   "
+#define SLSL205 "                      \\___________________________/    "
+#define SLSL206 "                               |              |        "
+#define SLSL207 "                              /               |        "
+#define SLSL208 "                             /                 \\       "
+#define SLSL209 "                      ______/                   \\__    "
+#define SLSL210 "                     /_____________________________\\   "
+#define SLSL211 "                     |                             |   "
+#define SLSL212 "                     |                             |   "
+#define SLSL213 "                     |                             |   "
+
+#define SLSBDY1 "                     |                             |   "
+#define SLSBDY2 "                     |                             |   "
+#define SLSBDY3 "                     |                             |   "
+#define SLSBDY4 "                     |                             |   "
+#define SLSBDY5 "                     |_-_-_-_-_-_-_-_-_-_-_-_-_-_-_|   "
+#define SLSBDY6 "                     \\                            /    "
+#define SLSBDY7 "                      \\                          /     "
+#define SLSBDY8 "                       \\________________________/      "
